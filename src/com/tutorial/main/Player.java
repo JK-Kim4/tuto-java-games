@@ -11,7 +11,6 @@ public class Player extends GameObject{
 
     private BufferedImage player_image;
 
-
     public Player(float x, float y, ID id, Handler handler){
         super(x, y, id);
         this.handler = handler;
@@ -20,6 +19,7 @@ public class Player extends GameObject{
 
         //sprite_sheet에서 player image load
         player_image = ss.grabImage(1,1, 32, 32);
+        System.out.println("player_image ===> "+player_image.getData());
 
     }
 
@@ -31,7 +31,7 @@ public class Player extends GameObject{
         x = Game.clamp(x, 0, Game.WIDTH -38);
         y = Game.clamp(y, 0, Game.HEIGHT - 61);
 
-        handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 32, 32, 0.05f, handler));
+//        handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 32, 32, 0.05f, handler));
 
         collision();
     }

@@ -34,15 +34,16 @@ public class Game extends Canvas implements Runnable{
       End
     };
 
-    public static BufferedImage sprite_sheet;
-
     public static STATE gameState = STATE.Menu;
+
+    public static BufferedImage sprite_sheet = null;
     //생성자
     public Game(){
 
         BufferedImageLoader loader = new BufferedImageLoader();
         try {
             sprite_sheet = loader.loadImage("/sprite_sheet.png");
+//            sprite_sheet = loader.loadImage("/sample.png");
             System.out.println("loaded");
         } catch (IOException e) {
             e.printStackTrace();

@@ -41,7 +41,7 @@ public class HardEnemy extends GameObject{
             else velX = (r.nextInt(7) * -1);
         }
 
-        handler.addObject(new Trail((int)x, (int)y,ID.Trail, Color.yellow, 16, 16, 0.01f, handler));
+//        handler.addObject(new Trail((int)x, (int)y,ID.Trail, Color.yellow, 16, 16, 0.01f, handler));
     }
 
     @Override
