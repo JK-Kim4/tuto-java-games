@@ -1,6 +1,7 @@
 package com.tutorial.main;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class HardEnemy extends GameObject{
@@ -9,6 +10,9 @@ public class HardEnemy extends GameObject{
 
     private Random r = new Random();
 
+    private BufferedImage enemy_image;
+
+
     public HardEnemy(float x, float y, ID id, Handler handler) {
         super(x, y, id);
 
@@ -16,6 +20,10 @@ public class HardEnemy extends GameObject{
 
         velX = 5;
         velY = 5;
+
+        SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
+
+        enemy_image = ss.grabImage(1,4,16,16);
 
     }
 
@@ -38,10 +46,7 @@ public class HardEnemy extends GameObject{
 
     @Override
     public void render(Graphics g) {
-
-        g.setColor(Color.yellow);
-        g.fillRect((int)x, (int)y,16,16);
-
+        g.drawImage(enemy_image, (int)x, (int)y, null);
     }
 
     @Override

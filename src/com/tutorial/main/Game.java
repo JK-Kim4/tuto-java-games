@@ -1,7 +1,11 @@
 package com.tutorial.main;
 
+import org.lwjgl.Sys;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Random;
 
@@ -30,9 +34,19 @@ public class Game extends Canvas implements Runnable{
       End
     };
 
+    public static BufferedImage sprite_sheet;
+
     public static STATE gameState = STATE.Menu;
     //생성자
     public Game(){
+
+        BufferedImageLoader loader = new BufferedImageLoader();
+        try {
+            sprite_sheet = loader.loadImage("/sprite_sheet.png");
+            System.out.println("loaded");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         handler = new Handler();
         hud = new HUD();
@@ -61,8 +75,6 @@ public class Game extends Canvas implements Runnable{
         }
 
         //handler.addObject(new BossEnemy((Game.WIDTH / 2) - 48, -120, ID.BossEnemy, handler));
-
-
 
     }
 

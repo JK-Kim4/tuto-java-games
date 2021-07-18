@@ -1,10 +1,13 @@
 package com.tutorial.main;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class FastEnemy extends GameObject{
 
     private Handler handler;
+
+    private BufferedImage enemy_image;
 
     public FastEnemy(float x, float y, ID id, Handler handler) {
         super(x, y, id);
@@ -13,6 +16,11 @@ public class FastEnemy extends GameObject{
 
         velX = 2;
         velY = 9;
+
+        SpriteSheet ss = new SpriteSheet(Game.sprite_sheet);
+
+
+        enemy_image = ss.grabImage(1,3,16,16);
 
     }
 
@@ -30,8 +38,7 @@ public class FastEnemy extends GameObject{
     @Override
     public void render(Graphics g) {
 
-        g.setColor(Color.cyan);
-        g.fillRect((int)x, (int)y,16,16);
+        g.drawImage(enemy_image, (int)x, (int)y, null);
 
     }
 
